@@ -26,20 +26,21 @@
 
 using System;
 using System.Text;
-using NUnit.Framework;
+using Xunit;
+using Xunit.Extensions;
 using DotNetNuke.R7;
 
-namespace DotNetNuke.R7.Tests
+namespace DotNetNuke.R7.XTests
 {
-    [TestFixture ()]
     public class StringExtensionsTest
     {
-        [Test()]
-        public void WordCount_TestCase ()
+        [Theory]
+        [InlineData (0, "")]
+        [InlineData (2, "hello, world!")]
+        [InlineData (1, "hello")]
+        public void WordCount (params object [] args)
         {
-            Assert.AreEqual (0, string.Empty.WordCount ());
-            Assert.AreEqual (2, "hello, world!".WordCount ());
-            Assert.AreEqual (1, "hello".WordCount ());
+            Assert.Equal (args [0], ((string) args [1]).WordCount ());
         }
     }
 }

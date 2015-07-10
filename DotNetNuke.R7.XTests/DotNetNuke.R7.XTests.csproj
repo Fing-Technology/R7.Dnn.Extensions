@@ -3,12 +3,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DF59252F-CDEB-4BF3-8760-49F7835577B8}</ProjectGuid>
+    <ProjectGuid>{5EBFDD66-A628-4B7C-A003-6A0D7796296D}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>DotNetNuke.R7.Tests</RootNamespace>
-    <AssemblyName>DotNetNuke.R7.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>DotNetNuke.R7.XTests</RootNamespace>
     <ReleaseVersion>0.1.1</ReleaseVersion>
+    <AssemblyName>DotNetNuke.R7.XTests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,21 +30,28 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    <Reference Include="xunit">
+      <HintPath>..\packages\xunit.1.9.2\lib\net20\xunit.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.extensions">
+      <HintPath>..\packages\xunit.extensions.1.9.2\lib\net20\xunit.extensions.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TypeUtils.test.cs" />
+    <Compile Include="StringExtensions.test.cs" />
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="DotNetNuke.R7.XTests.csproj" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DotNetNuke.R7\DotNetNuke.R7.csproj">
       <Project>{F5EF3563-5DD0-4412-B6FE-1C992C1E4EE6}</Project>
       <Name>DotNetNuke.R7</Name>
     </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
 </Project>
